@@ -34,8 +34,10 @@ const covid19ImpactEstimator = (data) => {
   const factor = Math.floor(duration / 3);
 
   // estimate infections by Impact and SevereImpact
-  const infectionsByRequestedTimeByImpact = currentlyInfectedByImpact * 2 ** factor;
-  const infectionsByRequestedTimeBysevereImpact = currentlyInfectedBySevereImpact * 2 ** factor;
+  const infectionsByRequestedTimeByImpact = Math.floor(currentlyInfectedByImpact * 2 ** factor);
+  const infectionsByRequestedTimeBysevereImpact = Math.floor(
+    currentlyInfectedBySevereImpact * 2 ** factor
+  );
 
   impact.infectionsByRequestedTime = infectionsByRequestedTimeByImpact;
   severeImpact.infectionsByRequestedTime = infectionsByRequestedTimeBysevereImpact;
