@@ -20,7 +20,7 @@ const covid19ImpactEstimator = (data) => {
   const estimatePeriodType = periodType;
   let duration = timeToElapse;
 
-  switch (estimatePeriodType) {
+  switch (estimatePeriodType.trim().toLowerCase()) {
     case 'weeks':
       duration *= 7;
       break;
