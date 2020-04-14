@@ -77,15 +77,14 @@ const covid19ImpactEstimator = (data) => {
   // estimate economic impac
   const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = region;
   impact.dollarsInFlight = Math.floor(
-    impact.infectionsByRequestedTime * avgDailyIncomePopulation
-    * avgDailyIncomeInUSD
-    * duration
+    (impact.infectionsByRequestedTime * avgDailyIncomePopulation
+    * avgDailyIncomeInUSD)
+    / duration
   );
   severeImpact.dollarsInFlight = Math.floor(
-    severeImpact.infectionsByRequestedTime
-    * avgDailyIncomePopulation
-    * avgDailyIncomeInUSD
-    * duration
+    (severeImpact.infectionsByRequestedTime
+    * avgDailyIncomePopulation * avgDailyIncomeInUSD)
+    / duration
   );
   return {
     data: input,
