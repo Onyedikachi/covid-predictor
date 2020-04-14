@@ -61,28 +61,28 @@ const covid19ImpactEstimator = (data) => {
 
   // estimate the number of ICU cases
   impact.casesForICUByRequestedTime = Math.floor(
-    0.05 * infectionsByRequestedTimeByImpact
+    0.05 * impact.infectionsByRequestedTime
   );
   severeImpact.casesForICUByRequestedTime = Math.floor(
-    0.05 * infectionsByRequestedTimeBysevereImpact
+    0.05 * severeImpact.infectionsByRequestedTime
   );
 
   // estimate the number of cases that need ventilators
   impact.casesForVentilatorsByRequestedTime = Math.floor(
-    0.02 * infectionsByRequestedTimeByImpact
+    0.02 * impact.infectionsByRequestedTime
   );
   severeImpact.casesForVentilatorsByRequestedTime = Math.floor(
-    0.02 * infectionsByRequestedTimeBysevereImpact
+    0.02 * severeImpact.infectionsByRequestedTime
   );
   // estimate economic impac
   const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = region;
   impact.dollarsInFlight = Math.floor(
-    infectionsByRequestedTimeByImpact * avgDailyIncomePopulation
+    impact.infectionsByRequestedTime * avgDailyIncomePopulation
     * avgDailyIncomeInUSD
     * duration
   );
   severeImpact.dollarsInFlight = Math.floor(
-    infectionsByRequestedTimeBysevereImpact
+    severeImpact.infectionsByRequestedTime
     * avgDailyIncomePopulation
     * avgDailyIncomeInUSD
     * duration
